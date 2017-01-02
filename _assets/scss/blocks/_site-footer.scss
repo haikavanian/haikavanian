@@ -1,0 +1,24 @@
+.site-footer {
+  @include columns(2);
+  margin-top: 4em;
+  color: $color-feint;
+  > * > *:first-child {
+    display: block;
+    border-top: 1px solid $color-border;
+    padding-top: 1rem;
+  }
+}
+
+.site-footer__social-items {
+  @extend .reset-ul;  
+}
+
+.site-footer__social-item {
+  display: inline-block;
+}
+
+.site-nav__link {
+  @extend .reset-a;
+}
+
+

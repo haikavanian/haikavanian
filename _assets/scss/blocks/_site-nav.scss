@@ -1,0 +1,27 @@
+.site-nav {
+  @include columns(2);
+  margin-bottom: 1em;
+  color: $color-feint;
+}
+
+.site-nav__items {
+  @extend .reset-ul;
+  text-align: right;
+}
+
+.site-nav__item {
+  display: inline-block;
+  margin-left: 1em;
+}
+
+.site-nav__item--left {
+  @extend .site-nav__item;
+  float: left;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.site-nav__link {
+  @extend .reset-a;
+}

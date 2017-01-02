@@ -1,0 +1,9 @@
+.site-headline {
+  @include columns(2);
+  margin-bottom: 4em;
+  > * > *:first-child {
+    display: block;
+    border-top: 1px solid $color-border;
+    padding-top: 1rem;
+  }
+}

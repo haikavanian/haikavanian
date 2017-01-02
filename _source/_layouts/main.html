@@ -27,11 +27,11 @@
 </head>
 
 <body{% if page.bodyclass %} class="{{ page.bodyclass }}"{% endif %}>
-
-  {% include blocks/header.html %}
-  {{content}}
-  {% include blocks/footer.html %}
+  <div class="page-container">
+    {% include blocks/header.html %}
+    {{content}}
+    {% include blocks/footer.html %}
+  </div>
   <script src="{{ "/assets/js/app.js" | prepend: site.baseurl }}"></script>
-
 </body>
 </html>

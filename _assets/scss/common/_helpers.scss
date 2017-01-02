@@ -50,6 +50,36 @@ body.noscroll {
   width: 100%;
 }
 
+.safe-flexbox {
+  display: flex;
+  > * {
+    -ms-flex: 0 1 auto;
+  }
+}
+
+
+// Column mixin
+
+@mixin columns($numCols, $verticalAlign: top, $gutter: 4em) {
+  @extend .safe-flexbox;
+  flex-wrap: wrap;
+  @include larger-than(mobile) {
+    margin-right: -$gutter;
+  }
+  &.align-bottom {
+    align-items: flex-end;
+  }
+  > * {
+    width: 100%;
+    @include larger-than(mobile) {
+      flex-shrink: 0;
+      width: 100% / $numCols;
+      padding: 0 $gutter 0 0;
+    }
+  }
+}
+
+
 @mixin aspect-ratio($width, $height) {
   position: relative;
   &:before {

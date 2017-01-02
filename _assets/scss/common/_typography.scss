@@ -1,5 +1,10 @@
 $base-font: 'GT America', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 html {
   font-size: $base-font-size * 1px;
   font-family: $base-font;
@@ -18,4 +23,8 @@ pre {
   vertical-align: bottom;
   border-radius: .3em;
   border: 1px solid #DDD;
+}
+
+a {
+  color: inherit;
 }
