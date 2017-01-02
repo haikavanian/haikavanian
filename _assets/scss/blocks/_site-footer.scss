@@ -10,15 +10,39 @@
 }
 
 .site-footer__social-items {
-  @extend .reset-ul;  
+  @extend .reset-ul;
+  text-align: right;
 }
 
 .site-footer__social-item {
   display: inline-block;
+  margin-left: 0.5em;
 }
 
-.site-nav__link {
+.site-footer__social-link {
   @extend .reset-a;
+  display: block;
+  width: 1em;
+  height: 1em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  span {
+    display: none;
+  }
 }
 
+.site-footer__social-link--instagram {
+  @extend .site-footer__social-link;
+  background-image: url('/assets/images/icon-instagram.svg');
+}
 
+.site-footer__social-link--twitter {
+  @extend .site-footer__social-link;
+  background-image: url('/assets/images/icon-twitter.svg');
+}
+
+.site-footer__social-link--linkedin {
+  @extend .site-footer__social-link;
+  background-image: url('/assets/images/icon-linkedin.svg');
+}
