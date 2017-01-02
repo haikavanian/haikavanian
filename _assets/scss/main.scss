@@ -6,12 +6,9 @@
 @import "common/colors";
 @import "base/media_queries";
 @import "common/typography";
-// @import "common/svg_icons";
 @import "base/layout";
 
 // PAGE BLOCKS
-@import "blocks/header";
-@import "blocks/footer";
-
-// DEMO COMPONENTS
-@import "components/demo";
+@import "blocks/site-nav";
+@import "blocks/site-headline";
+@import "blocks/site-footer";
