@@ -48,7 +48,10 @@ export default function (gulp, settings) {
       },
       resolve: {
         extensions: ['', '.js', '.jsx'],
-      },
+        alias: {
+          'jquery-ui': 'jquery-ui-dist/jquery-ui.js'
+        }
+      }
     };
 
     if (!minify) {
@@ -60,6 +63,11 @@ export default function (gulp, settings) {
         mangle: {
           except: ['$super', '$', 'exports', 'require'],
         },
+      }), 
+      new webpack.webpack.ProvidePlugin({
+        '$': 'jquery',
+        'jQuery': 'jquery',
+        'window.jQuery': 'jquery'
       })];
       /* eslint-enable new-cap */
     }

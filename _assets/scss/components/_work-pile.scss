@@ -5,11 +5,47 @@
 
 .work-pile__items {
   min-height: 75vh;
+  margin: 0 auto;
+  &:hover img {
+    opacity: 0.6;
+  }
 }
 
 .work-pile__item {
-  transition: all, 0.25s;
-  position: absolute;
-  top: 0;
-  left: 0;
+  @include larger-than(mobile) {
+    position: absolute;
+  }
+  cursor: move;
+  left: 50%;
+  top: 50%;
+  transition: translate, 0.5s;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  @for $i from 1 to 99 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.1s;
+    }
+  }
+  &.ui-draggable {
+    transition: none;
+  }
+  img {
+    transition: opacity, 0.25s;
+  }
+  &:hover {
+    z-index: 9999 !important;
+    img {    
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
