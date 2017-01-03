@@ -1,0 +1,15 @@
+.work-pile__items {
+  @extend .reset-ul;
+  position: relative;
+}
+
+.work-pile__items {
+  min-height: 75vh;
+}
+
+.work-pile__item {
+  transition: all, 0.25s;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
