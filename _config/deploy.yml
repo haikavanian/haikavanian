@@ -1,8 +1,7 @@
-domain: somadomain.com
+domain: koo.surge.sh
 
 surge:
-  enabled: false
-  domain:  somadomain.com
+  enabled: true
 
 rsync:
   enabled:          false

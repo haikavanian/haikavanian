@@ -12,22 +12,15 @@ function spreadItemsAndMakeDraggable() {
     const $el = $(el);
     const posX = Math.round(Math.random() * (containerWidth - $el.width()));
     const posY = Math.round(Math.random() * (containerHeight - $el.height()));
-    $(el).css({
-      'transform': 'translate(0, 0)',
-      '-ms-transform': 'translate(0, 0)',
-      '-webkit-transform': 'translate(0, 0)'
-    })
-    .animate({
+    $el.css({
       left: posX,
       top: posY
-    }, spreadAnimateTime, 'swing', _.delay(function() {
-      $(el).draggable({
-        containment: 'parent',
-        stack: '.work-pile__item'
-      });
-    }, 600));
+    }).draggable({
+      containment: 'parent',
+      stack: '.work-pile__item'
+    });
   });
 }
 
 const spreadDelay = $('.work-pile__item').length * spreadAnimateTime;
-_.delay(spreadItemsAndMakeDraggable, spreadDelay);
+_.delay(spreadItemsAndMakeDraggable, 0);
