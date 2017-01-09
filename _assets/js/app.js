@@ -12,7 +12,8 @@ function spreadItemsAndMakeDraggable() {
     const posY = Math.round(Math.random() * (containerHeight - $el.height()));
     $el.css({
       left: posX,
-      top: posY
+      top: posY,
+      visibility: 'visible'
     }).draggable({
       containment: 'parent',
       stack: '.work-pile__item'
@@ -20,4 +21,15 @@ function spreadItemsAndMakeDraggable() {
   });
 }
 
-_.delay(spreadItemsAndMakeDraggable, 0);
+$(function() {
+  // Give non-hovered work items a class
+  $('.work-pile__item').hover(function() {
+    const $el = $(this);
+    $el.siblings().addClass('work-pile__item--blurred');
+  }, function() {
+    const $el = $(this);
+    $el.siblings().removeClass('work-pile__item--blurred');
+  });
+
+  _.delay(spreadItemsAndMakeDraggable, 0);
+});
