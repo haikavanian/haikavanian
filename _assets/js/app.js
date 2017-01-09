@@ -2,8 +2,6 @@ import _ from 'lodash';
 import $ from 'jquery';
 import 'jquery-ui';
 
-const spreadAnimateTime = 100;
-
 function spreadItemsAndMakeDraggable() {
   const $container = $('.work-pile__items');
   const containerWidth = $container.width();
@@ -22,5 +20,4 @@ function spreadItemsAndMakeDraggable() {
   });
 }
 
-const spreadDelay = $('.work-pile__item').length * spreadAnimateTime;
 _.delay(spreadItemsAndMakeDraggable, 0);

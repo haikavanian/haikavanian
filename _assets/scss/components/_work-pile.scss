@@ -6,6 +6,7 @@
 .work-pile__items {
   min-height: 75vh;
   margin: 0 auto;
+  animation: fadeIn 2s forwards;
   &:hover img {
     transition: filter, 0.25s;
     filter: brightness(0.75) saturate(0.75) blur(5px);
@@ -19,20 +20,6 @@
   cursor: move;
   left: 50%;
   top: 50%;
-  transition: transform, 0.4s;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards;
-  @for $i from 1 to 99 {
-    &:nth-child(#{$i}) {
-      animation-delay: $i * 0.1s + 1s;
-    }
-  }
-  img {
-    transition: opacity, 0.25s;
-  }
-  &.ui-draggable-dragging {
-    transition: none;
-  }
   &:hover {
     z-index: 9999 !important;
     img {
@@ -44,7 +31,7 @@
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
+    opacity: 0.25;
   }
   to {
     opacity: 1;
