@@ -13,13 +13,13 @@ const configMerge = function (objValue, srcValue) {
 
 const babelConfig = _.mergeWith(JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', '.babelrc'), 'utf8')), { plugins: ['transform-runtime'] }, configMerge);
 
-export default function (gulp, settings) {
-  const jsSrcPath = path.resolve(__dirname, '..', settings.build.paths.source.js);
-  const jsDestPath = path.resolve(__dirname, '..', settings.build.paths.destination.js);
+export default function (gulp, config) {
+  const jsSrcPath = path.resolve(__dirname, '..', config.paths.source.js);
+  const jsDestPath = path.resolve(__dirname, '..', config.paths.destination.js);
 
   const webpackEntries = {};
   const gulpSrcEntries = [];
-  settings.build.paths.jsBundles.forEach((file) => {
+  config.paths.jsBundles.forEach((file) => {
     const fullPath = path.resolve(jsSrcPath, file);
     webpackEntries[file.replace(/\.js$/ig, '').replace(/[^a-z0-9_\-]/ig, '')] = fullPath;
     gulpSrcEntries.push(fullPath);

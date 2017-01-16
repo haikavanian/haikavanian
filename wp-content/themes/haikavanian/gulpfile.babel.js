@@ -16,14 +16,8 @@ import * as tasks from './_tasks';
 global.Promise = bluebird;
 
 // LOADING CONFIGURATIONS
-const CONFIG_PATH = path.resolve(__dirname, '_config');
-const CONFIG_NAMES = {
-  build: 'build.yml',
-};
-
-const config = {
-  build: yaml.safeLoad(fs.readFileSync(path.resolve(CONFIG_PATH, CONFIG_NAMES.build), 'utf-8')),
-};
+const CONFIG_PATH = path.resolve(__dirname, '_config', 'build.yml');
+const config = yaml.safeLoad(fs.readFileSync(path.resolve(CONFIG_PATH), 'utf-8'));
 
 // PARSING AND INITIALIZING DYNAMIC TASKS
 let availableTasks = [];

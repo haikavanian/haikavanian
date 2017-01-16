@@ -7,13 +7,13 @@ import autoprefixer from 'autoprefixer';
 import cleanCss from 'gulp-clean-css';
 import watch from 'gulp-watch';
 
-export default function (gulp, settings) {
+export default function (gulp, config) {
 
-  const cssSourcePath = path.resolve(__dirname, '..', settings.build.paths.source.scss, '**/*.scss');
-  const cssDestPath = path.resolve(__dirname, '..', settings.build.paths.destination.scss);
+  const cssSourcePath = path.resolve(__dirname, '..', config.paths.source.scss, '**/*.scss');
+  const cssDestPath = path.resolve(__dirname, '..', config.paths.destination.scss);
 
   const buildScss = function (minify) {
-    if (!settings.build.features.css.enabled) {
+    if (!config.features.css.enabled) {
       return Promise.resolve(null);
     }
 
@@ -25,15 +25,15 @@ export default function (gulp, settings) {
       chain = chain.pipe(sourcemaps.init());
     }
 
-    if (settings.build.features.css.autoprefix.enabled) {
-      chain = chain.pipe(postcss([autoprefixer(settings.build.features.css.autoprefix.settings)]));
+    if (config.features.css.autoprefix.enabled) {
+      chain = chain.pipe(postcss([autoprefixer(config.features.css.autoprefix.settings)]));
     }
 
     if (!minify) {
       chain = chain.pipe(sourcemaps.write());
     }
 
-    if (minify && settings.build.features.css.minify) {
+    if (minify && config.features.css.minify) {
       chain = chain.pipe(cleanCss());
     }
 

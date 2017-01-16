@@ -1,12 +1,12 @@
 import path from 'path';
 import watch from 'gulp-watch';
 
-function fonts(gulp, settings) {
-  const fontsSrc = path.resolve(__dirname, '..', settings.build.paths.source.fonts, '**/*');
-  const fontsDest = path.resolve(__dirname, '..', settings.build.paths.destination.fonts);
+function fonts(gulp, config) {
+  const fontsSrc = path.resolve(__dirname, '..', config.paths.source.fonts, '**/*');
+  const fontsDest = path.resolve(__dirname, '..', config.paths.destination.fonts);
 
   const copyFonts = function (doWatch) {
-    if (!settings.build.paths.source.fonts || !settings.build.paths.destination.fonts) {
+    if (!config.paths.source.fonts || !config.paths.destination.fonts) {
       return Promise.resolve(null);
     }
     let chain = gulp.src(fontsSrc);
@@ -26,12 +26,12 @@ function fonts(gulp, settings) {
   gulp.task('fonts-watch', () => copyFonts(true));
 }
 
-function images(gulp, settings) {
-  const imagesSrc = path.resolve(__dirname, '..', settings.build.paths.source.images, '**/*');
-  const imagesDest = path.resolve(__dirname, '..', settings.build.paths.destination.images);
+function images(gulp, config) {
+  const imagesSrc = path.resolve(__dirname, '..', config.paths.source.images, '**/*');
+  const imagesDest = path.resolve(__dirname, '..', config.paths.destination.images);
 
   const copyImages = function (doWatch) {
-    if (!settings.build.paths.source.images || !settings.build.paths.destination.images) {
+    if (!config.paths.source.images || !config.paths.destination.images) {
       return Promise.resolve(null);
     }
     let chain = gulp.src(imagesSrc);
@@ -51,8 +51,8 @@ function images(gulp, settings) {
   gulp.task('images-watch', () => copyImages(true));
 }
 
-export default function (gulp, settings) {
-  fonts(gulp, settings);
-  images(gulp, settings);
+export default function (gulp, config) {
+  fonts(gulp, config);
+  images(gulp, config);
   return null;
 }

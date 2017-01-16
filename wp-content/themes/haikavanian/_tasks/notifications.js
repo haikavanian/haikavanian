@@ -9,7 +9,7 @@ export default function (_, config) {
 
   global.handleErrors = function (area, error) {
     gulpUtil.log(gulpUtil.colors.red('Compile Error ::', error.message));
-    if (!config.build.features.notifications.enabled) {
+    if (!config.features.notifications.enabled) {
       return;
     }
     notifier.notify({

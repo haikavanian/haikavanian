@@ -1,5 +1,5 @@
 .DS_Store
-_site
+assets
 .sass-cache
 .jekyll-metadata
 *.sublime-*

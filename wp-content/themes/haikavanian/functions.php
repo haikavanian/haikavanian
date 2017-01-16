@@ -64,7 +64,6 @@ if ( function_exists("register_sidebar") ){
 
 function enqueue_styles(){
 
-  
   wp_enqueue_style("main", get_bloginfo("template_url") . "/assets/css/main.css");
 }
 
