@@ -1,0 +1,32 @@
+features:
+  css:
+    bundle: src/main.scss
+    enabled: true
+    minify:  true
+    autoprefix:
+      enabled: true
+      settings:
+        browsers:
+          - last 5 versions
+  js:
+    enabled:    true
+    minify:     true
+  notifications:
+    enabled: true
+
+paths:
+  components: components
+  source:
+    scss:   src/_assets/scss
+    less:   src/_assets/less
+    js:     src/_assets/js
+    images: src/_assets/images
+    fonts:  src/_assets/fonts
+  destination:
+    scss:   src/assets/css
+    less:   src/assets/css
+    js:     src/assets/js
+    images: src/assets/images
+    fonts:  src/assets/fonts
+  jsBundles:
+    - app.js
