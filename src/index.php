@@ -16,7 +16,8 @@ $testimonials = new WP_Query($args);
     ?>
     <li class="work-pile__item">
       <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-      <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+        <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+      </a>
     </li>
     <?php
     endwhile;
