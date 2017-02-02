@@ -1,60 +1,26 @@
 <?php 
-/*
-The posts loop. Fetches 'loop-posts.php' to output the posts themselves.
-*/
-
-get_header(); 
+get_header();
+$args = array(
+  "post_type" => "work",
+  "posts_per_page" => -1,
+  "orderby" => "menu_order",
+  "order" => "desc"
+);
+$testimonials = new WP_Query($args);
 ?>
 <div class="work-pile">
   <ul class="work-pile__items">
+  <?php
+  while($testimonials->have_posts()):
+    $testimonials->the_post();
+    ?>
     <li class="work-pile__item">
-      <img src="/assets/images/work/canadian-sushi@2x.png">
+      <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+      <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
     </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/curatious@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/dacha-wallpaper@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/edifi@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/f-t-i-brazil@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/f-t-i-mexico@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/kitchen@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/marka-v-i-p-2@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/marka-v-i-p@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/nico@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/overhead@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/roomchat@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/smoking@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/stamp@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/tea-lamp@2x.png">
-    </li>
-    <li class="work-pile__item">
-      <img src="/assets/images/work/v-a-wallpaper@2x.png">
-    </li>
+    <?php
+    endwhile;
+    ?>
   </ul>
 </div>
 <?php
