@@ -6,9 +6,9 @@ A Wordpress site.
 
 ### System requirements:
 
--WP CLI ([install](http://wp-cli.org/#installing))
--Local MySQL server running at the usual port (to install: `brew install mysql`)
--Node/npm ([install](https://nodejs.org/en/download/))
+- WP CLI ([install](http://wp-cli.org/#installing))
+- Local MySQL server running at the usual port (to install: `brew install mysql`)
+- Node/npm ([install](https://nodejs.org/en/download/))
 
 ### Installation
 
