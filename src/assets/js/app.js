@@ -58,7 +58,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function spreadItemsAndMakeDraggable() {
+	function spreadItemsRandomly() {
 	  var $container = (0, _jquery2.default)('.work-pile__items');
 	  var containerWidth = $container.width();
 	  var containerHeight = $container.height();
@@ -68,9 +68,15 @@
 	    var posY = Math.round(Math.random() * (containerHeight - $el.height()));
 	    $el.css({
 	      left: posX,
-	      top: posY,
-	      visibility: 'visible'
-	    }).draggable({
+	      top: posY
+	    });
+	  });
+	}
+	
+	function makeItemsDraggable() {
+	  (0, _jquery2.default)('.work-pile__item').each(function (index, el) {
+	    var $el = (0, _jquery2.default)(el);
+	    $el.draggable({
 	      containment: 'parent',
 	      stack: '.work-pile__item'
 	    });
@@ -87,7 +93,10 @@
 	    $el.siblings().removeClass('work-pile__item--blurred');
 	  });
 	
-	  _lodash2.default.delay(spreadItemsAndMakeDraggable, 0);
+	  _lodash2.default.delay(function () {
+	    //spreadItemsRandomly();
+	    makeItemsDraggable();
+	  }, 0);
 	});
 
 /***/ },

@@ -2,7 +2,7 @@ import _ from 'lodash';
 import $ from 'jquery';
 import 'jquery-ui';
 
-function spreadItemsAndMakeDraggable() {
+function spreadItemsRandomly() {
   const $container = $('.work-pile__items');
   const containerWidth = $container.width();
   const containerHeight = $container.height();
@@ -12,9 +12,15 @@ function spreadItemsAndMakeDraggable() {
     const posY = Math.round(Math.random() * (containerHeight - $el.height()));
     $el.css({
       left: posX,
-      top: posY,
-      visibility: 'visible'
-    }).draggable({
+      top: posY
+    });
+  });
+}
+
+function makeItemsDraggable() {
+  $('.work-pile__item').each((index, el) => {
+    const $el = $(el);
+    $el.draggable({
       containment: 'parent',
       stack: '.work-pile__item'
     });
@@ -31,5 +37,8 @@ $(function() {
     $el.siblings().removeClass('work-pile__item--blurred');
   });
 
-  _.delay(spreadItemsAndMakeDraggable, 0);
+  _.delay(function() {
+    //spreadItemsRandomly();
+    makeItemsDraggable();
+  }, 0);
 });

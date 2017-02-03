@@ -13,8 +13,10 @@ $testimonials = new WP_Query($args);
   <?php
   while($testimonials->have_posts()):
     $testimonials->the_post();
+    $x = get_field('x', get_the_ID());
+    $y = get_field('y', get_the_ID());
     ?>
-    <li class="work-pile__item">
+    <li class="work-pile__item" style="left: <?php echo $x; ?>%; top: <?php echo $y; ?>%;">
       <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
         <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
       </a>
