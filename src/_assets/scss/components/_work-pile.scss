@@ -7,12 +7,11 @@
 }
 
 .work-pile__item {
+  cursor: move;
+  display: none;
   @include larger-than(mobile) {
     position: absolute;
   }
-  cursor: move;
-  left: 50%;
-  top: 50%;
   &:hover {
     z-index: 9999 !important;
     img {
@@ -23,12 +22,19 @@
   img {
     transition: filter, 0.25s;
   }
+  &.ui-draggable-dragging {
+    //transform: translate(0, 0);
+  }
 }
 
 .work-pile__item--blurred {
   img {
     filter: brightness(0.75) saturate(0.75) blur(5px);
   }
+}
+
+.work-pile__link {
+  display: block;
 }
 
 @keyframes fadeIn {

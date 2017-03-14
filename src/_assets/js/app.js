@@ -18,12 +18,21 @@ function spreadItemsRandomly() {
 }
 
 function makeItemsDraggable() {
+  const canvasWidth = $('.work-pile__items').width();
+  const canvasHeight = $('.work-pile__items').height();
   $('.work-pile__item').each((index, el) => {
     const $el = $(el);
-    $el.draggable({
+    const width = $el.width();
+    const height = $el.height();
+    const left = parseFloat($el.attr('data-start-x'), 10);
+    const top = parseFloat($el.attr('data-start-y'), 10);
+    $el.css({
+      left: (left * canvasWidth) - (left * width),
+      top: (top * canvasHeight) - (top * height)
+    }).draggable({
       containment: 'parent',
       stack: '.work-pile__item'
-    });
+    }).fadeIn(250);
   });
 }
 

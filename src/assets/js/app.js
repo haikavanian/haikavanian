@@ -74,12 +74,21 @@
 	}
 	
 	function makeItemsDraggable() {
+	  var canvasWidth = (0, _jquery2.default)('.work-pile__items').width();
+	  var canvasHeight = (0, _jquery2.default)('.work-pile__items').height();
 	  (0, _jquery2.default)('.work-pile__item').each(function (index, el) {
 	    var $el = (0, _jquery2.default)(el);
-	    $el.draggable({
+	    var width = $el.width();
+	    var height = $el.height();
+	    var left = parseFloat($el.attr('data-start-x'), 10);
+	    var top = parseFloat($el.attr('data-start-y'), 10);
+	    $el.css({
+	      left: left * canvasWidth - left * width,
+	      top: top * canvasHeight - top * height
+	    }).draggable({
 	      containment: 'parent',
 	      stack: '.work-pile__item'
-	    });
+	    }).fadeIn(250);
 	  });
 	}
 	
