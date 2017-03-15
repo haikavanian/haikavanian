@@ -6,6 +6,13 @@
   }
 }
 
+.site-nav__title {
+  margin-bottom: 1em;
+  @include larger-than(mobile) {
+    margin-bottom: 0;
+  }
+}
+
 .site-nav__items {
   @extend .reset-ul;
   text-align: right;
