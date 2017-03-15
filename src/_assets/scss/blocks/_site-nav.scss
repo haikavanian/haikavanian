@@ -1,7 +1,9 @@
 .site-nav {
-  @include columns(2);
   margin-bottom: 1em;
   color: $color-feint;
+  @include larger-than(mobile) {
+    @include columns(2);
+  }
 }
 
 .site-nav__items {
@@ -12,14 +14,14 @@
 .site-nav__item {
   display: inline-block;
   margin-left: 1em;
-}
-
-.site-nav__item--left {
-  @extend .site-nav__item;
-  float: left;
   &:first-child {
+    float: left;
     margin-left: 0;
   }
+}
+
+.site-nav__item--active {
+  color: white;
 }
 
 .site-nav__link {

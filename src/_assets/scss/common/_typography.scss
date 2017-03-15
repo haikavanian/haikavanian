@@ -28,3 +28,15 @@ pre {
 a {
   color: inherit;
 }
+
+p {
+  line-height: 1.666666;
+  font-size: 1em;
+  margin: 0 0 1.5em;
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

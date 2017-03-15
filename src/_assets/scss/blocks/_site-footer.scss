@@ -1,11 +1,19 @@
 .site-footer {
-  @include columns(2);
   margin-top: 4em;
   color: $color-feint;
+  @include larger-than(mobile) {
+    @include columns(2);
+  }
   > * > *:first-child {
     display: block;
     border-top: 1px solid $color-border;
     padding-top: 1rem;
+  }
+  > *:first-child {
+    margin-bottom: 1em;
+    @include larger-than(mobile) {
+      margin-bottom: 0;
+    }
   }
 }
 

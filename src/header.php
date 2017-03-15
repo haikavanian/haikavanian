@@ -39,15 +39,21 @@
         </div>
         <div class="site-nav__menu">
           <ul class="site-nav__items">
-            <li class="site-nav__item--left">
-              <a class="site-nav__link" href="/">View Catalog</a>
-            </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="/blog">Blog</a>
-            </li>
-            <li class="site-nav__item">
-              <a class="site-nav__link" href="/information">Information</a>
-            </li>
+            <?php
+            $nav_items = wp_get_nav_menu_items("Header");
+            foreach($nav_items as $nav_item):
+              $a_class = implode(' ', $nav_item->classes);
+              $link = $nav_item->url;
+              $title = $nav_item->title;
+              $active = get_the_id() == $nav_item->object_id;
+              $a_class .= $active ? ' active' : '';
+              ?>
+              <li class="site-nav__item <?php if($active): ?>site-nav__item--active<?php endif; ?>">
+                <a class="site-nav__link" href="<?php echo $link; ?>"><?php echo $title; ?></a>
+              </li>
+              <?php
+            endforeach;
+            ?>
           </ul>
         </div>
       </nav>
