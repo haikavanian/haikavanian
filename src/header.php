@@ -59,7 +59,7 @@
       </nav>
       <div class="site-headline">
         <div class="site-headline__title">
-          <h1><?php the_title(); ?></h1>
+          <h1><?php echo (is_home()) ? get_the_title(get_option("page_for_posts")) : get_the_title(); ?></h1>
         </div>
         <div class="site-headline__caption">
           <span><?php the_excerpt(); ?></span>
