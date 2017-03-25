@@ -62,7 +62,7 @@
           <h1><?php echo (is_home()) ? get_the_title(get_option("page_for_posts")) : get_the_title(); ?></h1>
         </div>
         <div class="site-headline__caption">
-          <span><?php the_excerpt(); ?></span>
+          <div><?php the_excerpt(); ?></div>
         </div>
       </div>
     </header>
