@@ -25,7 +25,7 @@ $connections = array(
         "db_host" => "localhost",
         "show_errors" => 1,
         "multisite" => 0,
-        "db_prefix" => "wp_haikavanaian_staging_"
+        "db_prefix" => "wp_haikavanian_staging_"
     ),
     "production" => array(
         "domain" => "mysite.com",
