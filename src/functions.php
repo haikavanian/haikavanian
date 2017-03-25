@@ -12,7 +12,7 @@ function register_post_types(){
       ),
       "public" => true,
       "has_archive" => true,
-      "supports" => array("title", "editor", "page-attributes", "thumbnail") 
+      "supports" => array("title", "editor", "page-attributes", "thumbnail", "excerpt") 
     )
   );
 }
@@ -90,7 +90,7 @@ if(!is_admin()) {
 /* ---- Other ---- */
 
 //add excerpt field into pages
-add_post_type_support( "page", "excerpt" );
+add_post_type_support( "page", "excerpt", "work" );
 
 //add custom menu support 
 add_action("init", "register_custom_menu");
