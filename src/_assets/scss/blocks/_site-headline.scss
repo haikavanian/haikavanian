@@ -15,7 +15,9 @@
 .site-headline__caption {
   position: relative;
   p {
-    position: absolute;
-    z-index: 2;
+    .home & {
+      position: absolute;
+      z-index: 2;
+    }
   }
 }
