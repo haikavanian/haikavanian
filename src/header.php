@@ -45,7 +45,7 @@
               $a_class = implode(' ', $nav_item->classes);
               $link = $nav_item->url;
               $title = $nav_item->title;
-              $active = get_the_id() == $nav_item->object_id || ((is_home() || is_single()) && $nav_item->object_id == get_option("page_for_posts"));
+              $active = get_the_id() == $nav_item->object_id || ((is_home() || is_singular("post")) && $nav_item->object_id == get_option("page_for_posts"));
               $a_class .= $active ? ' active' : '';
               ?>
               <li class="site-nav__item <?php if($active): ?>site-nav__item--active<?php endif; ?>">
