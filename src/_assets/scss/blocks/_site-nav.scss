@@ -8,22 +8,30 @@
 
 .site-nav__title {
   margin-bottom: 1em;
+  border-bottom: 1px solid $color-border;
+  padding-bottom: 1em;
   @include larger-than(mobile) {
     margin-bottom: 0;
+    border-bottom: none;
+    padding: 0;
   }
 }
 
 .site-nav__items {
   @extend .reset-ul;
-  text-align: right;
+  @include larger-than(mobile) {
+    text-align: right;
+  }
 }
 
 .site-nav__item {
   display: inline-block;
   margin-left: 1em;
   &:first-child {
-    float: left;
     margin-left: 0;
+    @include larger-than(mobile) {
+      float: left;
+    }
   }
 }
 

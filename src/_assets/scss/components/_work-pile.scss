@@ -9,8 +9,12 @@
 .work-pile__item {
   cursor: move;
   display: none;
+  position: static !important;
+  text-align: center;
+  margin-bottom: 2em;
   @include larger-than(mobile) {
-    position: absolute;
+    position: absolute !important;
+    margin-bottom: 0;
   }
   &:hover {
     z-index: 9999 !important;
@@ -21,6 +25,7 @@
   }
   img {
     transition: filter, 0.25s;
+    max-width: 100%;
   }
   &.ui-draggable-dragging {
     //transform: translate(0, 0);

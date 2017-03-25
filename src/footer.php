@@ -5,15 +5,16 @@
       <div class="site-footer__contact">
         <span>Get in touch today!</span>
         <ul class="site-footer__social-items">
+        <?php
+          $nav_items = wp_get_nav_menu_items("Footer social links");
+          foreach($nav_items as $nav_item):
+          ?>
           <li class="site-footer__social-item">
-            <a class="site-footer__social-link--instagram" href="#"><span>Instagram</span></a>
+            <a target="_blank" class="site-footer__social-link--<?php echo $nav_item->post_name; ?>" href="<?php echo $nav_item->url; ?>"><span><?php echo $nav_item->title; ?></span></a>
           </li>
-          <li class="site-footer__social-item">
-            <a class="site-footer__social-link--twitter" href="#"><span>Twitter</span></a>
-          </li>
-          <li class="site-footer__social-item">
-            <a class="site-footer__social-link--linkedin" href="#"><span>LinkedIn</span></a>
-          </li>
+          <?php
+          endforeach; 
+        ?>
         </ul>
       </div>
     </footer>

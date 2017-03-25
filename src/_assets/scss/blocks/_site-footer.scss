@@ -4,10 +4,12 @@
   @include larger-than(mobile) {
     @include columns(2);
   }
-  > * > *:first-child {
+  > * {
     display: block;
-    border-top: 1px solid $color-border;
     padding-top: 1rem;
+    @include larger-than(mobile) {
+      border-top: 1px solid $color-border;
+    }
   }
   > *:first-child {
     margin-bottom: 1em;
@@ -17,24 +19,45 @@
   }
 }
 
+.site-footer__contact {
+  @include larger-than(mobile) {
+    display: flex;
+    align-items: center;
+  }
+  > * {
+    flex-grow: 1;
+  }
+}
+
 .site-footer__social-items {
   @extend .reset-ul;
-  text-align: right;
+  @include larger-than(mobile) {
+    text-align: right;
+  }
 }
 
 .site-footer__social-item {
   display: inline-block;
   margin-left: 0.5em;
+  vertical-align: middle;
+  &:first-child {
+    margin-left: 0;
+  }
 }
 
 .site-footer__social-link {
   @extend .reset-a;
+  transition: opacity, 0.25s;
   display: block;
   width: 1em;
   height: 1em;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
   span {
     display: none;
   }
@@ -42,15 +65,15 @@
 
 .site-footer__social-link--instagram {
   @extend .site-footer__social-link;
-  background-image: url('/assets/images/icon-instagram.svg');
+  background-image: url('../images/icon-instagram.svg');
 }
 
 .site-footer__social-link--twitter {
   @extend .site-footer__social-link;
-  background-image: url('/assets/images/icon-twitter.svg');
+  background-image: url('../images/icon-twitter.svg');
 }
 
 .site-footer__social-link--linkedin {
   @extend .site-footer__social-link;
-  background-image: url('/assets/images/icon-linkedin.svg');
+  background-image: url('../images/icon-linkedin.svg');
 }
