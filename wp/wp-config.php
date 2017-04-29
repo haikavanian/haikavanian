@@ -17,15 +17,15 @@ $connections = array(
         "db_prefix" => "wp_"
     ),
     "staging" => array(
-        "domain" => "staging.haikavanian.com",
+        "domain" => "138.197.65.252",
         "protocol" => "http",
         "db_name" => "wordpress",
-        "db_user" => "tv",
-        "db_password" => "cocacola",
+        "db_user" => "wordpress",
+        "db_password" => "78dbc0c19d4340bc8e3bbc5f6f55134b90a72964077a6917",
         "db_host" => "localhost",
         "show_errors" => 1,
         "multisite" => 0,
-        "db_prefix" => "wp_haikavanian_staging_"
+        "db_prefix" => "wp_"
     ),
     "production" => array(
         "domain" => "mysite.com",
