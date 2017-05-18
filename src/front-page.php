@@ -16,7 +16,7 @@ $testimonials = new WP_Query($args);
     $x = get_field('x', get_the_ID()) / 100;
     $y = get_field('y', get_the_ID()) / 100;
     ?>
-    <li class="work-pile__item" data-start-x="<?php echo $x; ?>" data-start-y="<?php echo $y; ?>" data-excerpt="<?php echo htmlentities(get_the_excerpt()); ?>">
+    <li class="work-pile__item" data-start-x="<?php echo $x; ?>" data-start-y="<?php echo $y; ?>" data-title="<?php echo htmlentities(get_the_title()); ?>" data-excerpt="<?php echo htmlentities(get_the_excerpt()); ?>">
       <a class="work-pile__link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" style="left: -<?php echo $x; ?>%; top: -<?php echo $y; ?>%;">
         <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
       </a>

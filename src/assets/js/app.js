@@ -93,16 +93,20 @@
 	}
 	
 	(0, _jquery2.default)(function () {
+	  var $title = (0, _jquery2.default)('.site-headline__title h1');
 	  var $excerpt = (0, _jquery2.default)('.site-headline__caption p');
+	  var origTitle = $title.text();
 	  var origExcerpt = $excerpt.text();
 	  // Give non-hovered work items a class
 	  (0, _jquery2.default)('.work-pile__item').hover(function () {
 	    var $el = (0, _jquery2.default)(this);
 	    $el.siblings().addClass('work-pile__item--blurred');
+	    $title.text($el.attr('data-title'));
 	    $excerpt.text($el.attr('data-excerpt'));
 	  }, function () {
 	    var $el = (0, _jquery2.default)(this);
 	    $el.siblings().removeClass('work-pile__item--blurred');
+	    $title.text(origTitle);
 	    $excerpt.text(origExcerpt);
 	  });
 	

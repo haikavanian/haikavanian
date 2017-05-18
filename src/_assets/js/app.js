@@ -37,16 +37,20 @@ function makeItemsDraggable() {
 }
 
 $(function() {
+  let $title = $('.site-headline__title h1');
   let $excerpt = $('.site-headline__caption p');
+  const origTitle = $title.text();
   const origExcerpt = $excerpt.text();
   // Give non-hovered work items a class
   $('.work-pile__item').hover(function() {
     const $el = $(this);
     $el.siblings().addClass('work-pile__item--blurred');
+    $title.text($el.attr('data-title'));
     $excerpt.text($el.attr('data-excerpt'));
   }, function() {
     const $el = $(this);
     $el.siblings().removeClass('work-pile__item--blurred');
+    $title.text(origTitle);
     $excerpt.text(origExcerpt);
   });
 
